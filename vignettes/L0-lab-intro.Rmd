@@ -1,0 +1,45 @@
+---
+title: "Labs Overview: Getting to know _R_ and _Bioconductor_"
+output:
+  BiocStyle::html_document:
+    toc: true
+vignette: >
+  % \VignetteIndexEntry{Labs Overview}
+  % \VignetteEngine{knitr::rmarkdown}
+---
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+```
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+Authors: Valerie Obenchain (<a
+  href="mailto:valerie.obenchain@roswellpark.org">valerie.obenchain@roswellpark.org.org</a>)<br \>
+  Lori Shepherd (<a
+  href="mailto:lori.shepherd@roswellpark.org">lori.shepherd@roswellpark.org</a>)<br \>
+  Martin Morgan (<a
+  href="mailto:martin.morgan@roswellpark.org">martin.morgan@roswellpark.org</a>)
+  <br />
+Date: 25 June, 2016
+
+This lab has four parts. Each part consists of informative material
+followed by short or intermediate length exercises and case
+studies. The material introduces or refreshes your knowledge of _R_,
+and walks through some of the central classes and annotation resources
+for working with high-throughput sequence data in _Bioconductor_.
+
+It's recommended that you choose two of the following sections, and
+spend about 20 minutes on each. Take time to work through the code in
+the material as well as the exercises, asking questions of your
+colleagues and the TAs as needed.
+
+1.1 [Introduction to _R_](L1-r-intro.html)
+
+1.2 [Introduction to _Bioconductor_](L2-bioc-intro.html)
+
+1.3 [Data Representations](L3-bioc-data-representation.html)
+
+1.4 [Annotation](L4-bioc-annotation.html)

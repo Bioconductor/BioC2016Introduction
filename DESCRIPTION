@@ -1,0 +1,17 @@
+Package: BioC2016Introduction
+Type: Package
+Title: Course material for Getting to Know R / Bioconductor
+    Lab Practical at BioC 2016, Standford University, Stanford,
+    CA, June 206.
+Version: 0.0.1
+Author: Valerie Obenchain, Lori Shepherd, Martin Morgan
+Maintainer: Valerie Obenchain <valerie.obenchain@roswellpark.org>
+Description: Material for Getting to Know R / Bioconductor
+    Lab Practical at BioC 2016.
+License: Artistic-2.0
+Suggests: BiocStyle, GenomicFeatures, GenomicAlignments, ShortRead,
+    RNAseqData.HNRNPC.bam.chr14, AnnotationHub, AnnotationDbi,
+    org.Hs.eg.db, Homo.sapiens, biomaRt, SummarizedExperiment,
+    airway, Rsamtools, BSgenome.Hsapiens.UCSC.hg19, 
+    TxDb.Hsapiens.UCSC.hg19.knownGene, rtracklayer
+VignetteBuilder: knitr

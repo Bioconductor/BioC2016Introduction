@@ -1,0 +1,45 @@
+---
+title: "Getting to Know _R_ and _Bioconductor_"
+author: "Valerie Obenchain (valerie.obenchain@roswellpark.org)<br />
+    Lori Shepherd (lori.shepherd@roswellpark.org)<br />
+    Martin Morgan (martin.morgan@roswellpark.org)<br />
+    Stanford University, Stanford, CA<br />
+    25 - 26 June, 2016"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 2
+vignette: >
+  % \VignetteIndexEntry{Getting to Know R / Bioconductor}
+  % \VignetteEngine{knitr::rmarkdown}
+---
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+options(width=100, max.print=1000)
+knitr::opts_chunk$set(
+    eval=as.logical(Sys.getenv("KNITR_EVAL", "TRUE")),
+    cache=as.logical(Sys.getenv("KNITR_CACHE", "TRUE")))
+```
+
+The material in this session requires _R_ version 3.3 and
+_Bioconductor_ version 3.4.
+
+```{r configure-test}
+stopifnot(
+    getRversion() >= '3.3' && getRversion() < '3.4',
+    BiocInstaller::biocVersion() == "3.4"
+)
+```
+
+1. [Introduction to _R_](Lecture-r-introduction.html) (T)
+2. [Introduction to _Bioconductor_](Lecture-bioc-introduction.html) (T)
+3. [Sequences and Strings for Genome-Scale Data](Lecture-sequences.html) (T)
+4. [Adding Annotation To Your Analysis](Lecture-annotation.html) (T)
+5. [Labs Overview](Labs Overview)<br />
+    [Lab 1: Introduction to _R_](L1-r-intro.html) (P) <br />
+    [Lab 2: Introduction to _Bioconductor_](L2-bioc-intro.html) (P) <br />
+    [Lab 3: Data Representations](L3-bioc-data-representation.html) (P)<br />
+    [Lab 4: Annotation](L4-bioc-annotation.html) (P)<br />
+
+(T): Talk; (P): Practical.

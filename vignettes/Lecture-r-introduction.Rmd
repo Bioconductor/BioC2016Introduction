@@ -1,0 +1,189 @@
+---
+title: "1. Introduction to _R_"
+author: "Valerie Obenchain (valerie.obenchain@roswellpark.org)<br />
+    Lori Shepherd (lori.shepherd@roswellpark.org)<br />
+    Martin Morgan (martin.morgan@roswellpark.org)<br />
+    Stanford University, Stanford, CA<br />
+    25 - 26 June, 2016"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 2
+vignette: >
+  % \VignetteIndexEntry{1. Introduction to _R_}
+  % \VignetteEngine{knitr::rmarkdown}
+---
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+options(width=100, max.print=1000)
+knitr::opts_chunk$set(
+    eval=as.logical(Sys.getenv("KNITR_EVAL", "TRUE")),
+    cache=as.logical(Sys.getenv("KNITR_CACHE", "TRUE")))
+```
+
+```{r packages, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages({
+    library(BioC2016Introduction)
+    library(SummarizedExperiment)
+    library(airway)
+})
+```
+
+The material in this course requires R version 3.3 and Bioconductor
+version 3.4
+
+```{r configure-test}
+stopifnot(
+    getRversion() >= '3.3' && getRversion() < '3.4',
+    BiocInstaller::biocVersion() == "3.4"
+)
+```
+
+Version: `r packageDescription("BioC2016Introduction")$Version`<br />
+Compiled: `r date()`
+
+# _R_
+
+Language and environment for statistical computing and graphics
+
+- Full-featured programming language
+- Interactive and *interpretted* -- convenient and forgiving
+- Coherent, extensive documentation
+- Statistical, e.g. `factor()`, `NA`
+- Extensible -- CRAN, Bioconductor, github, ...
+
+## Vectors, classes, objects
+
+- Efficient _vectorized_ calculations on 'atomic' vectors `logical`,
+  `integer`, `numeric`, `complex`, `character`, `byte`
+- Atomic vectors are building blocks for more complicated _objects_
+  - `matrix` -- atomic vector with 'dim' attribute
+  - `data.frame` -- list of equal length atomic vectors
+- Formal _classes_ represent complicated combinations of vectors,
+  e.g., the return value of `lm()`, below
+
+## Functions, generics, methods
+
+- Functions transform inputs to outputs, perhaps with side effects,
+  e.g., `rnorm(1000)`
+  - Argument matching first by name, then by position
+  - Functions may define (some) arguments to have default values
+- _Generic_ functions dispatch to specific _methods_ based on class of
+  argument(s), e.g., `print()`. 
+- Methods are functions that implement specific generics, e.g.,
+  `print.factor`; methods are invoked _indirectly_, via the generic.
+
+## Introspection
+
+- General properties, e.g., `class()`, `str()`
+- Class-specific properties, e.g., `dim()`
+
+## Help
+
+- `?print`: help on the generic print 
+- `?print.data.frame`: help on print method for objects of class
+    data.frame.
+
+Example
+
+```{r}
+x <- rnorm(1000)                   # atomic vectors
+y <- x + rnorm(1000, sd=.5)
+df <- data.frame(x=x, y=y)         # object of class 'data.frame'
+plot(y ~ x, df)                    # generic plot, method plot.formula
+fit <- lm(y ~x, df)                # object of class 'lm'
+methods(class=class(fit))          # introspection
+```
+
+# Resources
+
+- [Web site](https://www.r-project.org/) -- install, learn, use, develop
+- [Manuals](https://cran.r-project.org/manuals.html)
+- [Mailing list support](https://www.r-project.org/mail.html) -- seek help and
+  guidance; also
+  [StackOverflow](http://stackoverflow.com/questions/tagged/r) for _R_
+  programming questions
+- [Hadley Wickham's Advanced R book](http://adv-r.had.co.nz/)
+
+Acknowledgements
+
+  The research reported in this presentation was supported by the
+  National Cancer Institute and the National Human Genome Research
+  Institute of the National Institutes of Health under Award numbers
+  U24CA180996 and U41HG004059, and the National Science Foundation
+  under Award number 1247813. The content is solely the responsibility
+  of the authors and does not necessarily represent the official views
+  of the National Institutes of Health or the National Science
+  Foundation.
+
+## `sessionInfo()`
+
+```{r sessionInfo}
+sessionInfo()
+```
+
+<!-- Bibliography -->
+
+[R]: http://r-project.org
+[Bioconductor]: http://bioconductor.org
+[GRanges.bib]: http://dx.doi.org/10.1371/journal.pcbi.1003118
+[Scalable.bib]: http://arxiv.org/abs/1409.2864
+[Lawrence.bioc2014.bib]:
+    http://bioconductor.org/help/course-materials/2014/BioC2014/Lawrence_Talk.pdf
+
+
+[AnnotationData]: http://bioconductor.org/packages/release/BiocViews.html#___AnnotationData
+[biocViews]: http://bioconductor.org/packages/release/BiocViews.html#___Software
+
+[AnnotationDbi]: http://bioconductor.org/packages/AnnotationDbi
+[AnnotationHub]: http://bioconductor.org/packages/AnnotationHub
+[BSgenome.Hsapiens.UCSC.hg19]: http://bioconductor.org/packages/BSgenome.Hsapiens.UCSC.hg19
+[BSgenome]: http://bioconductor.org/packages/BSgenome
+[BiocParallel]: http://bioconductor.org/packages/BiocParallel
+[Biostrings]: http://bioconductor.org/packages/Biostrings
+[CNTools]: http://bioconductor.org/packages/CNTools
+[ChIPQC]: http://bioconductor.org/packages/ChIPQC
+[ChIPseeker]: http://bioconductor.org/packages/ChIPseeker
+[DESeq2]: http://bioconductor.org/packages/DESeq2
+[DiffBind]: http://bioconductor.org/packages/DiffBind
+[GenomicAlignments]: http://bioconductor.org/packages/GenomicAlignments
+[GenomicFiles]: http://bioconductor.org/packages/GenomicFiles
+[GenomicRanges]: http://bioconductor.org/packages/GenomicRanges
+[Homo.sapiens]: http://bioconductor.org/packages/Homo.sapiens
+[IRanges]: http://bioconductor.org/packages/IRanges
+[KEGGREST]: http://bioconductor.org/packages/KEGGREST
+[PSICQUIC]: http://bioconductor.org/packages/PSICQUIC
+[Rsamtools]: http://bioconductor.org/packages/Rsamtools
+[Rsubread]: http://bioconductor.org/packages/Rsubread
+[ShortRead]: http://bioconductor.org/packages/ShortRead
+[SomaticSignatures]: http://bioconductor.org/packages/SomaticSignatures
+[SummarizedExperiment]: http://bioconductor.org/packages/SummarizedExperiment
+[TxDb.Hsapiens.UCSC.hg19.knownGene]: http://bioconductor.org/packages/TxDb.Hsapiens.UCSC.hg19.knownGene
+[VariantAnnotation]: http://bioconductor.org/packages/VariantAnnotation
+[VariantFiltering]: http://bioconductor.org/packages/VariantFiltering
+[VariantTools]: http://bioconductor.org/packages/VariantTools
+[biomaRt]: http://bioconductor.org/packages/biomaRt
+[cn.mops]: http://bioconductor.org/packages/cn.mops
+[csaw]: http://bioconductor.org/packages/csaw
+[edgeR]: http://bioconductor.org/packages/edgeR
+[ensemblVEP]: http://bioconductor.org/packages/ensemblVEP 
+[h5vc]: http://bioconductor.org/packages/h5vc
+[limma]: http://bioconductor.org/packages/limma
+[metagenomeSeq]: http://bioconductor.org/packages/metagenomeSeq
+[org.Hs.eg.db]: http://bioconductor.org/packages/org.Hs.eg.db
+[org.Sc.sgd.db]: http://bioconductor.org/packages/org.Sc.sgd.db
+[phyloseq]: http://bioconductor.org/packages/phyloseq
+[rtracklayer]: http://bioconductor.org/packages/rtracklayer
+[snpStats]: http://bioconductor.org/packages/snpStats
+[Gviz]: http://bioconductor.org/packages/Gviz
+[epivizr]: http://bioconductor.org/packages/epivizr
+[ggbio]: http://bioconductor.org/packages/ggbio
+[OmicCircos]: http://bioconductor.org/packages/OmicCircos
+
+[dplyr]: https://cran.r-project.org/package=dplyr
+[data.table]: https://cran.r-project.org/package=data.table
+[Rcpp]: https://cran.r-project.org/package=Rcpp
+
+[AMI]: http://bioconductor.org/help/bioconductor-cloud-ami/
+[docker]: http://bioconductor.org/help/docker/
