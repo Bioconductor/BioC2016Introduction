@@ -577,8 +577,8 @@ differential expression analysis, e.g., through [DESeq2][] and
     ```{r summarizeOverlaps}
     ## next 2 lines optional; non-Windows
     library(BiocParallel)
-    register(MulticoreParam(workers=detectCores()))
-    olaps <- summarizeOverlaps(exByGn, RNAseqData.HNRNPC.bam.chr14_BAMFILES)
+    register(MulticoreParam(workers=2))
+    olaps <- summarizeOverlaps(exByGn, RNAseqData.HNRNPC.bam.chr14_BAMFILES[1:2])
     ```
      
 4. Explore our handiwork, e.g., library sizes (column sums),
