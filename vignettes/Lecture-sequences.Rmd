@@ -10,7 +10,7 @@ output:
     toc: true
     toc_depth: 2
 vignette: >
-  % \VignetteIndexEntry{2. Sequences and Strings For Genome-Scale Data}
+  % \VignetteIndexEntry{3. Sequences and Strings For Genome-Scale Data}
   % \VignetteEngine{knitr::rmarkdown}
 ---
 
