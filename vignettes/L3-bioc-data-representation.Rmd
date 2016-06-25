@@ -4,7 +4,7 @@ output:
   BiocStyle::html_document:
     toc: true
 vignette: >
-  % \VignetteIndexEntry{Lab 1.3: Data Represenations}
+  % \VignetteIndexEntry{Lab 3: Data Represenations}
   % \VignetteEngine{knitr::rmarkdown}
 ---
 

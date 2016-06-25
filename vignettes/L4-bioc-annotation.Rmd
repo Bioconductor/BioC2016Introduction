@@ -4,7 +4,7 @@ output:
   BiocStyle::html_document:
     toc: true
 vignette: >
-  % \VignetteIndexEntry{Lab 1.4: Annotation Resources}
+  % \VignetteIndexEntry{Lab 4: Annotation Resources}
   % \VignetteEngine{knitr::rmarkdown}
 ---
 

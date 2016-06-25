@@ -4,7 +4,7 @@ output:
   BiocStyle::html_document:
     toc: true
 vignette: >
-  % \VignetteIndexEntry{Lab 1.1: Introduction to R}
+  % \VignetteIndexEntry{Lab 1: Introduction to R}
   % \VignetteEngine{knitr::rmarkdown}
 ---
 
